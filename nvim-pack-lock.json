@@ -1,0 +1,44 @@
+{
+  "plugins": {
+    "blink.cmp": {
+      "rev": "b4b7cbb52bab6c716b317433fa9348a070cccee5",
+      "src": "https://github.com/saghen/blink.cmp"
+    },
+    "mason.nvim": {
+      "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
+      "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "mini.nvim": {
+      "rev": "402ee6c6ec8ea44b22330446c8fb4e615fd3953e",
+      "src": "https://www.github.com/echasnovski/mini.nvim"
+    },
+    "nvim-cmp": {
+      "rev": "a1d504892f2bc56c2e79b65c6faded2fd21f3eca",
+      "src": "https://github.com/hrsh7th/nvim-cmp"
+    },
+    "nvim-lspconfig": {
+      "rev": "9ccd58a7949091c0cc2777d4e92a45a209c808c1",
+      "src": "https://www.github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-tree.lua": {
+      "rev": "31503ad5d869fca61461d82a9126f62480ecb0ab",
+      "src": "https://www.github.com/nvim-tree/nvim-tree.lua"
+    },
+    "nvim-treesitter-context": {
+      "rev": "b0c45cefe2c8f7b55fc46f34e563bc428ef99636",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
+    },
+    "obsidian.nvim": {
+      "rev": "726b60c89f4bafef267a714ea1faa1335bdd414a",
+      "src": "https://github.com/epwalsh/obsidian.nvim"
+    },
+    "plenary.nvim": {
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "which-key.nvim": {
+      "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
+      "src": "https://github.com/folke/which-key.nvim"
+    }
+  }
+}
