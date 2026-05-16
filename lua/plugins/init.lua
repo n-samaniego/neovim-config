@@ -2,6 +2,7 @@
 -- Plugins
 -- ============================================================
 vim.pack.add({
+    "https://github.com/neovim/nvim-lspconfig",
     "https://www.github.com/nvim-tree/nvim-tree.lua",
     "https://www.github.com/echasnovski/mini.nvim",
     "https://github.com/folke/which-key.nvim",
@@ -78,14 +79,6 @@ wk.add({
       return require("which-key.extras").expand.buf()
     end
   },
-  {
-    -- Nested mappings are allowed and can be added in any order
-    -- Most attributes can be inherited or overridden on any level
-    -- There's no limit to the depth of nesting
-    mode = { "n", "v" }, -- NORMAL and VISUAL mode
-    { "<leader>q", "<cmd>q<cr>", desc = "Quit" }, -- no need to specify mode since it's inherited
-    { "<leader>w", "<cmd>w<cr>", desc = "Write" },
-  }
 })
 
 -- nvim-cmp

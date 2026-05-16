@@ -78,3 +78,10 @@ end
 
 vim.opt.undofile = true
 vim.opt.undodir = undodir
+
+-- autocomplete
+vim.o.autocomplete = true
+vim.opt.complete:append( 'o' )
+vim.opt.completeopt = { 'menuone', 'noselect' }
+vim.o.pumheight = 5
+vim.o.pumborder = 'rounded'

@@ -1,5 +1,5 @@
-require("options.lua")
-require("keymaps.lua")
-require("autocommands.lua")
+require("options")
+require("keymaps")
+require("autocommands")
 require("plugins")
 require("plugins.lsp")
