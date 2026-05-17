@@ -42,4 +42,4 @@ vim.diagnostic.config {
 
 
 -- Enable all of them
-vim.lsp.enable({ 'clangd', 'lua_ls' })
+vim.lsp.enable({ 'clangd', 'lua_ls', 'rust-analyzer', 'pyright' })
