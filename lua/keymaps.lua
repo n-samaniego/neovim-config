@@ -40,3 +40,6 @@ vim.keymap.set("i", "<Tab>", function()
     return "<Tab>"
   end
 end, { expr = true, noremap = true })
+
+-- select all
+vim.keymap.set('n', '<C-a>', 'ggVG', { desc = 'Select whole file' })
