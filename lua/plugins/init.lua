@@ -7,7 +7,8 @@ vim.pack.add({
     "https://github.com/echasnovski/mini.nvim",
     "https://github.com/folke/which-key.nvim",
     "https://github.com/nvim-tree/nvim-tree.lua",
-    "https://github.com/wom/womwiki"
+--    "https://github.com/wom/womwiki"
+    "https://github.com/n-samaniego/piki"
 --    "https://github.com/nvim-lua/plenary.nvim",
 --    "https://github.com/hrsh7th/nvim-cmp",
 --    "https://github.com/epwalsh/obsidian.nvim",
@@ -21,7 +22,9 @@ packadd("nvim-treesitter-context")
 packadd("mini.nvim")
 packadd("which-key.nvim")
 packadd("nvim-tree.lua")
-packadd("womwiki")
+packadd("piki")
+
+--packadd("womwiki")
 -- packadd("plenary.nvim")
 -- packadd("nvim-cmp")
 -- packadd("obsidian.nvim")
@@ -91,7 +94,7 @@ end, { desc = "Toggle NvimTree" })
 
 
 -- womwiki
-require("womwiki").setup({
+require("piki").setup({
   path = vim.fn.expand("~/Documents/Codex"),              -- Path to your wiki directory
   picker = nil,                     -- "snacks", "fzf", "mini", "telescope", or nil (auto-detect)
   default_link_style = "wikilink",  -- "markdown" or "wikilink" for new links

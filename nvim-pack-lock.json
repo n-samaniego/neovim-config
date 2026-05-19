@@ -32,6 +32,10 @@
       "rev": "726b60c89f4bafef267a714ea1faa1335bdd414a",
       "src": "https://github.com/epwalsh/obsidian.nvim"
     },
+    "piki": {
+      "rev": "a796c8f7d52090418b741fcc4811a54a57a707e4",
+      "src": "/home/niles/Documents/Codex/20-29 Works/piki"
+    },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
@@ -39,10 +43,6 @@
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
       "src": "https://github.com/folke/which-key.nvim"
-    },
-    "womwiki": {
-      "rev": "e339207723e7d2de7a1907261ab93fadbebe1c4b",
-      "src": "https://github.com/wom/womwiki"
     }
   }
 }
