@@ -27,6 +27,7 @@ vim.keymap.set("i", "<A-j>", "<Down>",  { desc = "Move down" })
 vim.keymap.set("i", "<A-k>", "<Up>",    { desc = "Move up" })
 vim.keymap.set("i", "<A-l>", "<Right>", { desc = "Move right" })
 
+-- pair open and close characters
 local closing_chars = { ["'"] = true, ['"'] = true, ["`"] = true,
                          [")"] = true, ["]"] = true, ["}"] = true, [">"] = true }
 
@@ -43,3 +44,33 @@ end, { expr = true, noremap = true })
 
 -- select all
 vim.keymap.set('n', '<C-a>', 'ggVG', { desc = 'Select whole file' })
+
+-- Wrap visual selection in quotation marks or brackets
+vim.keymap.set('v', "<leader>'", "c''<Esc>P")
+vim.keymap.set('v', '<leader>"', 'c""<Esc>P')
+vim.keymap.set('v', '<leader>(', 'c()<Esc>P')
+vim.keymap.set('v', '<leader>)', 'c()<Esc>P')
+vim.keymap.set('v', '<leader>[', 'c[]<Esc>P')
+vim.keymap.set('v', '<leader>]', 'c[]<Esc>P')
+vim.keymap.set('v', '<leader>{', 'c{}<Esc>P')
+vim.keymap.set('v', '<leader>}', 'c{}<Esc>P')
+
+-- Paste hyperlinks for Markdown
+vim.keymap.set('n', '<leader>li', 'i[]()<Left><Left><Left><Esc>a')
+vim.keymap.set('v', '<leader>li', '"ac[<C-r>"]()<Esc><Left>a')
+vim.keymap.set('n', '<leader>lp', 'i[]()<Left><Esc>pF[a')
+vim.keymap.set('v', '<leader>lp', '"ac[<C-r>"]()<Esc><Left>p')
+
+-- clear search highlight
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+-- execute C code
+vim.keymap.set('n', '<leader>ec', ':w<CR>:!gcc % -o %:r && ./%:r<CR>', { noremap = true, silent = true })
+
+-- Insert C boilerplate
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = '*.c',
+  callback = function()
+    vim.keymap.set('n', '<leader>bc', 'i#include <stdio.h><CR><CR>int main() {<CR>}<Esc>O', { buffer = true }, { desc = '[B]oilerplate [C]' })
+  end,
+})

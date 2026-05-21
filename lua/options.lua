@@ -36,8 +36,8 @@ vim.o.incsearch = true
 vim.o.inccommand = 'split'              -- live preview of substitutions
 
 -- Splits
-vim.o.splitright = true
 vim.o.splitbelow = true
+vim.o.splitright = true
 
 -- Behavior
 vim.o.undofile = true
@@ -56,6 +56,7 @@ end)
 
 vim.o.list = true
 vim.opt.listchars = { tab = '» ',  nbsp = '␣' }
+
 -- show trailing spaces only in normal mode
 vim.api.nvim_create_autocmd('ModeChanged', {
   group = vim.api.nvim_create_augroup('listchars-mode', { clear = true }),
