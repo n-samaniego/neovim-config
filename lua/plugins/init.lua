@@ -8,7 +8,8 @@ vim.pack.add({
     "https://github.com/folke/which-key.nvim",
     "https://github.com/nvim-tree/nvim-tree.lua",
 --    "https://github.com/wom/womwiki"
-    "https://github.com/n-samaniego/piki"
+--    "https://github.com/n-samaniego/piki"
+    { src = "https://github.com/n-samaniego/piki", version = "feat/daily" }
 --    "https://github.com/nvim-lua/plenary.nvim",
 --    "https://github.com/hrsh7th/nvim-cmp",
 --    "https://github.com/epwalsh/obsidian.nvim",
