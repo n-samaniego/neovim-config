@@ -27,6 +27,13 @@ vim.keymap.set("i", "<A-j>", "<Down>",  { desc = "Move down" })
 vim.keymap.set("i", "<A-k>", "<Up>",    { desc = "Move up" })
 vim.keymap.set("i", "<A-l>", "<Right>", { desc = "Move right" })
 
+-- move visually in soft wrap
+vim.keymap.set({'n', 'x'}, 'j', 'gj', opts)
+vim.keymap.set({'n', 'x'}, 'k', 'gk', opts)
+vim.keymap.set({'n', 'x'}, 'H', 'g0', opts)
+vim.keymap.set({'n', 'x'}, 'L', 'g$', opts)
+
+
 -- pair open and close characters
 local closing_chars = { ["'"] = true, ['"'] = true, ["`"] = true,
                          [")"] = true, ["]"] = true, ["}"] = true, [">"] = true }

@@ -18,14 +18,3 @@ vim.api.nvim_create_autocmd("InsertLeave", {
   end,
 })
 
--- Softwrap navigation
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "markdown", "text", "typst" },
-    callback = function(ev)
-        local opts = { buffer = ev.buf }
-        vim.keymap.set({'n', 'x'}, 'j', 'gj', opts)
-        vim.keymap.set({'n', 'x'}, 'k', 'gk', opts)
-        vim.keymap.set({'n', 'x'}, 'H', 'g0', opts)
-        vim.keymap.set({'n', 'x'}, 'L', 'g$', opts)
-    end
-})
