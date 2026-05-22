@@ -47,6 +47,7 @@ vim.keymap.set('n', '<C-a>', 'ggVG', { desc = 'Select whole file' })
 
 -- Wrap visual selection in quotation marks or brackets
 vim.keymap.set('v', "<leader>'", "c''<Esc>P")
+vim.keymap.set('v', '<leader>`', 'c``<Esc>P')
 vim.keymap.set('v', '<leader>"', 'c""<Esc>P')
 vim.keymap.set('v', '<leader>(', 'c()<Esc>P')
 vim.keymap.set('v', '<leader>)', 'c()<Esc>P')
