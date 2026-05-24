@@ -16,29 +16,16 @@ vim.diagnostic.config {
 -- LSP
 -- ============================================================
 -- clangd
---vim.lsp.config('clangd', {
---    cmd = { 'clangd' },
---    filetypes = { 'c', 'cpp', 'h' },
---    root_markers = { 'compile_commands.json', 'compile_flags.txt', '.git' },
---})
+vim.lsp.config('clangd', {
+    cmd = { 'clangd' },
+    filetypes = { 'c', 'cpp', 'h' },
+    root_markers = { 'compile_commands.json', 'compile_flags.txt', '.git' },
+})
 
 -- Lua
---vim.lsp.config('lua_ls', {
---    cmd = { 'lua-language-server' },
---    filetypes = { 'lua' },
---    root_markers = { '.luarc.json', '.git' },
---    settings = {
---        Lua = {
---            runtime = { version = 'LuaJIT' },
---            workspace = {
---                checkThirdParty = false,
---                library = vim.api.nvim_get_runtime_file('', true),
---            },
---            diagnostics = { globals = { 'vim' } },
---            telemetry = { enable = false },
---        },
---    },
---})
+vim.lsp.config('lua_ls', {
+    cmd = { "lua-language-server", "--configpath", vim.fn.expand("~/.config/lua-language-server/config.lua") }
+})
 
 
 -- Enable all of them

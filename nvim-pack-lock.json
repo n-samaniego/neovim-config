@@ -35,11 +35,15 @@
     "piki": {
       "rev": "8956902803cc097ff0fa4020a33a2bbf9e05f163",
       "src": "https://github.com/n-samaniego/piki",
-      "version": "'feat/daily'"
+      "version": "'dev'"
     },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "screenkey.nvim": {
+      "rev": "740e238d1f143cb5f3a9d932f9c5142d3581b986",
+      "src": "https://github.com/NStefan002/screenkey.nvim"
     },
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
