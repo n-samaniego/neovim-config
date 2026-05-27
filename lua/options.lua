@@ -19,7 +19,7 @@ vim.o.showmode = false
 vim.o.termguicolors = true
 vim.o.wrap = true
 vim.opt.linebreak = true
-vim.cmd.colorscheme("monalisa")
+vim.cmd.colorscheme("monalisaV2")
 
 -- Indentation
 vim.o.expandtab = true

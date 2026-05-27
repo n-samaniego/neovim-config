@@ -17,6 +17,9 @@ vim.diagnostic.config {
 -- ============================================================
 -- clangd
 vim.lsp.config('clangd', {
+--     on_attach = function(client)
+--        client.server_capabilities.semanticTokensProvider = nil
+--    end,
     cmd = { 'clangd' },
     filetypes = { 'c', 'cpp', 'h' },
     root_markers = { 'compile_commands.json', 'compile_flags.txt', '.git' },
@@ -24,7 +27,21 @@ vim.lsp.config('clangd', {
 
 -- Lua
 vim.lsp.config('lua_ls', {
-    cmd = { "lua-language-server", "--configpath", vim.fn.expand("~/.config/lua-language-server/config.lua") }
+    settings = {
+        Lua = {
+            workspace = {
+                library = { "/usr/share/nvim/runtime/lua" }, checkThirdParty = false,
+            },
+            diagnostics = {
+                globals = { "vim" },
+            },
+            runtime = {
+                version = "LuaJIT",
+            },
+        },
+    },
+    cmd = { "lua-language-server" },
+    filetypes = { "lua" },
 })
 
 

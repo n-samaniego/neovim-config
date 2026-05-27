@@ -82,3 +82,12 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
     vim.keymap.set('n', '<leader>bc', 'i#include <stdio.h><CR><CR>int main() {<CR>}<Esc>O', { buffer = true }, { desc = '[B]oilerplate [C]' })
   end,
 })
+
+-- insert current time
+vim.keymap.set('n', '<leader>c',
+function()
+    local timestamp = os.date("%I:%M %p")
+    vim.api.nvim_put({ timestamp }, "c", false, true)
+    vim.cmd("startinsert!")
+end,
+{ desc = "Insert timestamp" })

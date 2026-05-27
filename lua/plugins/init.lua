@@ -2,15 +2,16 @@
 -- Plugins
 -- ============================================================
 vim.pack.add({
-    "https://github.com/neovim/nvim-lspconfig",
+--    "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/nvim-treesitter/nvim-treesitter-context",
     "https://github.com/echasnovski/mini.nvim",
     "https://github.com/folke/which-key.nvim",
     "https://github.com/nvim-tree/nvim-tree.lua",
     "https://github.com/NStefan002/screenkey.nvim",
+    'file://' .. os.getenv('HOME') .. '/Documents/Codex/20-29_Works/piki',
 --    "https://github.com/wom/womwiki"
 --    "https://github.com/n-samaniego/piki"
-    { src = "https://github.com/n-samaniego/piki", version = "dev" }
+--    { src = "/home/niles/Documents/Codex/20-29_Works/piki"}
 --    "https://github.com/nvim-lua/plenary.nvim",
 --    "https://github.com/hrsh7th/nvim-cmp",
 --    "https://github.com/epwalsh/obsidian.nvim",
@@ -103,25 +104,27 @@ require("piki").setup({
   path = vim.fn.expand("~/Documents/Codex"),              -- Path to your wiki directory
   picker = nil,                     -- "snacks", "fzf", "mini", "telescope", or nil (auto-detect)
   default_link_style = "wikilink",  -- "markdown" or "wikilink" for new links
-
   completion = {
     enabled = true,           -- Enable link/tag autocompletion
     include_headings = true,  -- Offer headings in completion (file.md#heading)
     max_results = 50,         -- Maximum completion results
     cache_ttl = 300,          -- Cache expiry in seconds (also invalidated on save)
   },
-
+  markdown_help = true,
   wikilinks = {
     enabled = true,       -- Support [[wikilink]] syntax
     spaces_to = "-",      -- Convert spaces: "-", "_", or nil (keep spaces)
     confirm_create = true, -- Confirm before creating new files from links
   },
-
   tags = {
     enabled = true,              -- Support #tags and frontmatter tags
     inline_pattern = "#([%w_-]+)", -- Lua pattern for inline tags
     use_frontmatter = true,      -- Parse YAML frontmatter for tags
   },
+  daily = {
+      path = "~/Documents/Codex/10-19_Logs/10_Daily-Notes",
+      template = "~/Documents/Codex/00-09_Control/02_Templates/DailtNoteTemplate.md"
+  }
 })
 
 -- nvim-cmp

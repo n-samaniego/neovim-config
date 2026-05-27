@@ -33,9 +33,8 @@
       "src": "https://github.com/epwalsh/obsidian.nvim"
     },
     "piki": {
-      "rev": "8956902803cc097ff0fa4020a33a2bbf9e05f163",
-      "src": "https://github.com/n-samaniego/piki",
-      "version": "'dev'"
+      "rev": "7981b16a36402be429e3521627ae22578c3a962c",
+      "src": "file:///home/niles/Documents/Codex/20-29_Works/piki"
     },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
