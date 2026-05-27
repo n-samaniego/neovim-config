@@ -127,7 +127,7 @@ hl("MonaLisaOrangeSign", { fg = orange, bg = bg })
 
 -- ── General UI ────────────────────────────────────────────────────────────────
 hl("Normal",       { fg = fg1,  bg = bg })
-hl("NormalFloat",  { fg = fg1,  bg = bg2 })
+hl("NormalFloat",  { fg = fg1,  bg = "#1e1010" })
 hl("NormalNC",     { fg = fg2,  bg = bg })
 
 hl("CursorLine",   { bg = bg1 })
@@ -206,10 +206,10 @@ hl("Identifier",   { fg = c12 })
 hl("Function",     { link = "MonaLisaGreen" })
 
 hl("PreProc",      { fg = c1 })
-hl("Include",      { link = "MonaLisaAqua" })
+hl("Include",      { fg = c2 })
 hl("Define",       { fg = c1 })
 hl("Macro",        { fg = c1 })
-hl("PreCondit",    { link = "MonaLisaAqua" })
+hl("PreCondit",    { fg = c2 })
 
 hl("Constant",     { link = "MonaLisaPurple" })
 hl("Character",    { fg = c11 })
@@ -572,3 +572,32 @@ hl("elixirDocString",           { link = "Comment" })
 hl("elixirStringDelimiter",     { link = "MonaLisaGreen" })
 hl("elixirInterpolationDelimiter",{ link = "MonaLisaAqua" })
 hl("elixirModuleDeclaration",   { link = "MonaLisaYellow" })
+
+-- ── Shell / Zsh ───────────────────────────────────────────────────────────────
+hl("shStatement",    { link = "MonaLisaRed" })
+hl("shConditional",  { link = "MonaLisaRed" })
+hl("shRepeat",       { link = "MonaLisaRed" })
+hl("shVariable",     { fg = c12 })             -- cool gray-blue, matches @variable
+hl("shDeref",        { fg = c12 })             -- $VAR dereferences
+hl("shOperator",     { link = "Operator" })
+hl("shParen",        { fg = cursor_bg })        -- matches your bracket color
+hl("shArithmetic",   { fg = cursor_bg })
+hl("shCommandSub",   { fg = orange })           -- $(command) substitutions
+hl("shQuote",        { fg = orange })
+hl("shString",       { link = "String" })
+hl("shSpecial",      { link = "MonaLisaOrange" })
+hl("shFunction",     { fg = green })            -- yellow-green, matches @function
+hl("shFunctionKey",  { link = "MonaLisaAqua" }) -- 'function' keyword
+hl("shAlias",        { fg = green })
+hl("shSet",          { link = "MonaLisaRed" })  -- set, export, local
+hl("shSetList",      { fg = c12 })
+hl("shComment",      { link = "Comment" })
+hl("zshVariable",    { fg = c12 })
+hl("zshDeref",       { fg = c12 })
+hl("zshFunction",    { fg = green })
+hl("zshOperator",    { link = "Operator" })
+hl("zshString",      { link = "String" })
+hl("zshComment",     { link = "Comment" })
+hl("zshSubst",       { fg = orange })           -- $() and ${} substitutions
+hl("zshSubstDelim",  { fg = cursor_bg })
+hl("zshKeyword",     { link = "MonaLisaRed" })
