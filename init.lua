@@ -1,5 +1,6 @@
 require("options")
 require("keymaps")
 require("autocommands")
+require("splash").setup()
 require("plugins")
 require("plugins.lsp")

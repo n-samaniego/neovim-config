@@ -48,7 +48,8 @@ vim.o.confirm = true                    -- prompt to save instead of failing :q
 vim.o.mouse = 'a'
 vim.opt.autoread = true
 vim.opt.autowrite = true
-vim.opt_local.conceallevel = 1
+vim.opt_local.conceallevel = 2
+vim.opt_local.concealcursor = "n"
 
 vim.schedule(function()
   vim.o.clipboard = 'unnamedplus'       -- deferred to avoid startup latency
@@ -86,3 +87,11 @@ vim.opt.complete:append( 'o' )
 vim.opt.completeopt = { 'menuone', 'noselect' }
 vim.o.pumheight = 5
 vim.o.pumborder = 'rounded'
+
+
+-- conceal
+--vim.fn.matchadd("Conceal", "- \\[ \\]", 20, -1, { conceal = "☐" })
+--vim.fn.matchadd("Conceal", "- \\[x\\]", 20, -1, { conceal = "✔" })
+--vim.fn.matchadd("Conceal", "- \\[-\\]", 20, -1, { conceal = "✖" })
+--vim.fn.matchadd("Conceal", "- \\[>\\]", 20, -1, { conceal = "»" })
+

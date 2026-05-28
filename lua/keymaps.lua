@@ -53,6 +53,8 @@ end, { expr = true, noremap = true })
 vim.keymap.set('n', '<C-a>', 'ggVG', { desc = 'Select whole file' })
 
 -- Wrap visual selection in quotation marks or brackets
+vim.keymap.set('v', '<leader>*', 'c**<Esc>P')
+vim.keymap.set('v', '<leader>**', 'c****<Esc>P')
 vim.keymap.set('v', "<leader>'", "c''<Esc>P")
 vim.keymap.set('v', '<leader>`', 'c``<Esc>P')
 vim.keymap.set('v', '<leader>"', 'c""<Esc>P')
@@ -63,11 +65,6 @@ vim.keymap.set('v', '<leader>]', 'c[]<Esc>P')
 vim.keymap.set('v', '<leader>{', 'c{}<Esc>P')
 vim.keymap.set('v', '<leader>}', 'c{}<Esc>P')
 
--- Paste hyperlinks for Markdown
-vim.keymap.set('n', '<leader>li', 'i[]()<Left><Left><Left><Esc>a')
-vim.keymap.set('v', '<leader>li', '"ac[<C-r>"]()<Esc><Left>a')
-vim.keymap.set('n', '<leader>lp', 'i[]()<Left><Esc>pF[a')
-vim.keymap.set('v', '<leader>lp', '"ac[<C-r>"]()<Esc><Left>p')
 
 -- clear search highlight
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -83,11 +80,24 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   end,
 })
 
--- insert current time
-vim.keymap.set('n', '<leader>c',
-function()
-    local timestamp = os.date("%I:%M %p")
-    vim.api.nvim_put({ timestamp }, "c", false, true)
-    vim.cmd("startinsert!")
-end,
-{ desc = "Insert timestamp" })
+-- Folds
+vim.keymap.set("n", "<leader>a", "za", { desc = "Toggle fold" })
+
+-- Splits
+vim.keymap.set("n", "<leader>s", "<C-w>s", { desc = "Split horizontal" })
+vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split vertical" })
+vim.keymap.set("n", "<leader>sx", "<C-w>c", { desc = "Close split" })
+vim.keymap.set("n", "<leader>so", "<C-w>o", { desc = "Close other splits" })
+
+-- markdown links
+vim.keymap.set('n', '<leader>li', 'i[]()<Left><Left><Left><Esc>a', { buffer = true })
+vim.keymap.set('v', '<leader>li', '"ac[<C-r>"]()<Esc><Left>a', { buffer = true })
+vim.keymap.set('n', '<leader>lp', 'i[]()<Left><Esc>pF[a', { buffer = true })
+vim.keymap.set('v', '<leader>lp', '"ac[<C-r>"]()<Esc><Left>p', { buffer = true })
+
+-- timestamp
+vim.keymap.set('n', '<leader>c', function()
+  local timestamp = os.date("%I:%M %p")
+  vim.api.nvim_put({ " " .. timestamp .. " - " }, "c", false, true)
+  vim.cmd("startinsert!")
+end, { buffer = true, desc = "Insert timestamp" })

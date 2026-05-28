@@ -1,46 +1,40 @@
+-- lua/plugins/init.lua - List, add, and configure plugins
 -- ============================================================
 -- Plugins
 -- ============================================================
 vim.pack.add({
---    "https://github.com/neovim/nvim-lspconfig",
-    "https://github.com/nvim-treesitter/nvim-treesitter-context",
+--    "https://github.com/arborist-ts/arborist.nvim",
     "https://github.com/echasnovski/mini.nvim",
     "https://github.com/folke/which-key.nvim",
     "https://github.com/nvim-tree/nvim-tree.lua",
     "https://github.com/NStefan002/screenkey.nvim",
     'file://' .. os.getenv('HOME') .. '/Documents/Codex/20-29_Works/piki',
---    "https://github.com/wom/womwiki"
---    "https://github.com/n-samaniego/piki"
---    { src = "/home/niles/Documents/Codex/20-29_Works/piki"}
---    "https://github.com/nvim-lua/plenary.nvim",
---    "https://github.com/hrsh7th/nvim-cmp",
---    "https://github.com/epwalsh/obsidian.nvim",
---    "https://github.com/Saghen/blink.cmp"
 })
 
 local function packadd(name)
     vim.cmd("packadd " .. name)
 end
-packadd("nvim-treesitter-context")
+--packadd("arborist.nvim")
 packadd("mini.nvim")
 packadd("which-key.nvim")
 packadd("nvim-tree.lua")
 packadd("screenkey.nvim")
 packadd("piki")
 
---packadd("womwiki")
--- packadd("plenary.nvim")
--- packadd("nvim-cmp")
--- packadd("obsidian.nvim")
--- packadd("blink.cmp")
-
-
-
 -- ============================================================
 -- Plugin Config
 -- ============================================================
--- treesitter
-require('treesitter-context').setup({})
+-- arborist
+--require('arborist').setup({
+--    perfer_wasm = true,
+--    compiler = "clang",
+--    update_cadence = "weekly",
+--    install_popular = false,
+--    disable = {
+--        indent = { "markdown", "markdown-inline" },
+--        highlight = { "markdown", "markdown-inline" },
+--    }
+--})
 
 
 --mini.nvim
@@ -126,47 +120,3 @@ require("piki").setup({
       template = "~/Documents/Codex/00-09_Control/02_Templates/DailtNoteTemplate.md"
   }
 })
-
--- nvim-cmp
--- require("cmp").setup({})
-
--- obsidian.nvim
--- require("obsidian").setup({
---     dir = "~/Documents/Codex",
---
---     daily_notes = {
---         folder = "10-19 Logs/10 Daily Notes",
---         date_format = "%Y-%m-%d",
---         alias_format = nil,
---         default_tags = { "daily-note", "journal" }
---      },
---
---     completion = {
---         nvim_cmp = true,
---         min_chars = 2
---     },
---
---     open_notes_in = "current",
--- })
-
-
-
--- blink.cmp
--- require('blink.cmp').setup({
---     keymap = {
---         preset = 'default',  -- Tab/S-Tab to select, Enter to confirm, C-space to open
---     },
---     appearance = {
---         nerd_font_variant = 'mono',
---     },
---     sources = {
---         default = { 'lsp', 'path', 'snippets', 'buffer' },
---     },
---     completion = {
---         documentation = {
---             auto_show = true,
---             auto_show_delay_ms = 200,
---         },
---     },
---     signature = { enabled = true },   -- show function signature help while typing args
--- })
