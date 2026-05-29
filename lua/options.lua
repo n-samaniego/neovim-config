@@ -1,98 +1,106 @@
 -- ============================================================
--- LEADER (must be set before plugins)
+-- LEADER (must be set before plugins load)
 -- ============================================================
-vim.g.mapleader = ' '
+vim.g.mapleader      = ' '
 vim.g.maplocalleader = ' '
 
-
-
 -- ============================================================
--- OPTIONS
+-- APPEARANCE
 -- ============================================================
--- UI
-vim.o.number = true -- line number
-vim.o.relativenumber = true -- relative line numbers
-vim.o.cursorline = true -- highlight current line
-vim.o.scrolloff = 999
-vim.o.signcolumn = 'yes'
-vim.o.showmode = false
-vim.o.termguicolors = true
-vim.o.wrap = true
-vim.opt.linebreak = true
+vim.o.number         = true             -- absolute line number on current line
+vim.o.relativenumber = true             -- relative numbers on all other lines
+vim.o.cursorline     = true             -- highlight the current line
+vim.o.scrolloff      = 999              -- keep cursor vertically centered
+vim.o.signcolumn     = 'yes'            -- always show sign column (prevents layout shift)
+vim.o.showmode       = false            -- redundant with a statusline plugin
+vim.o.showtabline = 1                   -- show tabline when multiple tabs
+vim.o.termguicolors  = true             -- 24-bit color (disabled for monalisa theme; kept for plugins)
 vim.cmd.colorscheme("monalisaV2")
 
--- Indentation
-vim.o.expandtab = true
-vim.o.shiftwidth = 4
-vim.o.tabstop = 4
-vim.o.smartindent = true
-vim.o.breakindent = true
+-- ============================================================
+-- WRAPPING & INDENTATION
+-- ============================================================
+vim.o.wrap        = true                -- soft-wrap long lines
+vim.opt.linebreak = true                -- break at word boundaries, not mid-word
+vim.o.breakindent = true                -- wrapped lines inherit indentation
 
--- Search
-vim.o.ignorecase = true
-vim.o.smartcase = true
-vim.o.hlsearch = true
-vim.o.incsearch = true
-vim.o.inccommand = 'split'              -- live preview of substitutions
+vim.o.expandtab   = true                -- insert spaces instead of tabs
+vim.o.shiftwidth  = 4                   -- spaces per indent level (>> / <<)
+vim.o.tabstop     = 4                   -- visual width of a tab character
+vim.o.smartindent = true                -- auto-indent on new lines
 
--- Splits
-vim.o.splitbelow = true
-vim.o.splitright = true
+-- ============================================================
+-- SEARCH & SUBSTITUTION
+-- ============================================================
+vim.o.ignorecase  = true                -- case-insensitive by default
+vim.o.smartcase   = true                -- case-sensitive when query has uppercase
+vim.o.hlsearch    = true                -- highlight all matches
+vim.o.incsearch   = true                -- highlight matches as you type
+	vim.o.inccommand  = 'split'             -- live preview of :s substitutions in a split
 
--- Behavior
-vim.o.undofile = true
-vim.o.swapfile = false
-vim.o.updatetime = 250                  -- faster CursorHold (LSP hover, etc.)
-vim.o.timeoutlen = 300                  -- faster keymap timeout
-vim.o.confirm = true                    -- prompt to save instead of failing :q
-vim.o.mouse = 'a'
-vim.opt.autoread = true
-vim.opt.autowrite = true
-vim.opt_local.conceallevel = 2
-vim.opt_local.concealcursor = "n"
+-- ============================================================
+-- SPLITS
+-- ============================================================
+vim.o.splitbelow = true                 -- horizontal splits open below
+vim.o.splitright = true                 -- vertical splits open to the right
 
-vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'       -- deferred to avoid startup latency
-end)
-
-vim.o.list = true
-vim.opt.listchars = { tab = '» ',  nbsp = '␣' }
-
--- show trailing spaces only in normal mode
-vim.api.nvim_create_autocmd('ModeChanged', {
-  group = vim.api.nvim_create_augroup('listchars-mode', { clear = true }),
-  callback = function()
-    if vim.fn.mode() == 'n' then
-      vim.opt.listchars:append({ trail = '·' })
-    else
-      vim.opt.listchars:remove('trail')
-    end
-  end,
-})
-
--- Undo Stuff
-local undodir = vim.fn.expand("~/.vim/undodir")
-if
-    vim.fn.isdirectory(undodir) == 0 -- creae undodir if it doesn't exist
-then
-    vim.fn.mkdir(undodir, "p")
-end
-
-vim.opt.undofile = true
-vim.opt.undodir = undodir
-
--- autocomplete
-vim.opt.shortmess:append "c"
-vim.opt.completeopt = { 'menuone', 'noselect', "noinsert" }
+-- ============================================================
+-- COMPLETION
+-- ============================================================
+vim.opt.completeopt = { 'menuone', 'noselect', 'noinsert' }
+vim.opt.shortmess:append("c")           -- suppress "match N of M" completion messages
+vim.o.pumheight = 5                     -- max items visible in the popup menu
+vim.o.pumborder = 'rounded'             -- rounded border on the popup menu
 --vim.o.autocomplete = true
 --vim.opt.complete:append( 'o' )
---vim.o.pumheight = 5
---vim.o.pumborder = 'rounded'
 
+-- ============================================================
+-- WHITESPACE DISPLAY
+-- ============================================================
+vim.o.list = true
+vim.opt.listchars = { tab = '» ', nbsp = '␣' }
 
--- conceal
---vim.fn.matchadd("Conceal", "- \\[ \\]", 20, -1, { conceal = "☐" })
---vim.fn.matchadd("Conceal", "- \\[x\\]", 20, -1, { conceal = "✔" })
---vim.fn.matchadd("Conceal", "- \\[-\\]", 20, -1, { conceal = "✖" })
---vim.fn.matchadd("Conceal", "- \\[>\\]", 20, -1, { conceal = "»" })
+-- Show trailing spaces only in normal mode (they're expected mid-edit)
+vim.api.nvim_create_autocmd('ModeChanged', {
+    group = vim.api.nvim_create_augroup('listchars-mode', { clear = true }),
+    callback = function()
+        if vim.fn.mode() == 'n' then
+            vim.opt.listchars:append({ trail = '·' })
+        else
+            vim.opt.listchars:remove('trail')
+        end
+    end,
+})
 
+-- ============================================================
+-- UNDO
+-- ============================================================
+local undodir = vim.fn.expand("~/.vim/undodir")
+if vim.fn.isdirectory(undodir) == 0 then
+    vim.fn.mkdir(undodir, "p")          -- create undodir if it doesn't exist
+end
+vim.opt.undofile = true                 -- persist undo history across sessions
+vim.opt.undodir  = undodir
+
+-- ============================================================
+-- BEHAVIOR
+-- ============================================================
+vim.o.swapfile   = false                -- no swap files; rely on undo + git instead
+vim.o.updatetime = 250                  -- faster CursorHold events (LSP hover, diagnostics)
+vim.o.timeoutlen = 300                  -- shorter window for multi-key mappings
+vim.o.confirm    = true                 -- prompt to save on :q instead of failing outright
+vim.o.mouse      = 'a'                  -- mouse support in all modes
+vim.opt.autoread  = true                -- reload file if changed on disk externally
+vim.opt.autowrite = true                -- auto-save when switching buffers/running :make
+
+-- Clipboard: deferred to avoid startup latency
+vim.schedule(function()
+    vim.o.clipboard = 'unnamedplus'     -- sync with system clipboard
+end)
+
+-- ============================================================
+-- CONCEAL
+-- ============================================================
+-- Global defaults; override per-buffer in ftplugin/ or autocmds as needed
+vim.opt_local.conceallevel  = 2         -- hide concealed text (e.g. markdown formatting)
+vim.opt_local.concealcursor = "n"       -- only conceal in normal mode; reveal on cursor

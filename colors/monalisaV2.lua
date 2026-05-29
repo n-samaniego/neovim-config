@@ -139,9 +139,9 @@ hl("ColorColumn",  { bg = bg1 })
 hl("Conceal",      { fg = blue })
 hl("MatchParen",   { bg = bg3,  bold = true })
 
-hl("TabLineFill",  { fg = fg4,  bg = bg1 })
-hl("TabLineSel",   { fg = green, bg = bg1 })
-hl("TabLine",      { link = "TabLineFill" })
+hl("TabLineFill",  { fg = bg,  bg = bg })
+hl("TabLineSel",   { fg = c11, bg = bg })
+hl("TabLine",      { fg = bg3, bg = bg })
 
 hl("Visual",       { bg = bg3 })
 hl("VisualNOS",    { link = "Visual" })
@@ -174,7 +174,7 @@ hl("Question",     { link = "MonaLisaOrangeBold" })
 hl("WarningMsg",   { link = "MonaLisaRedBold" })
 
 hl("NonText",      { link = "MonaLisaBg2" })
-hl("SpecialKey",   { link = "Comment" })
+hl("SpecialKey",   { fg = cursor_bg })
 
 -- ── Gutter ────────────────────────────────────────────────────────────────────
 hl("SignColumn",   { bg = bg })
@@ -285,7 +285,7 @@ hl("@float",                { link = "Float" })
 hl("@boolean",              { link = "Boolean" })
 
 hl("@label",                { link = "Label" })
-hl("@tag",                  { fg = blue })
+hl("@tag",                  { fg = c5 })
 hl("@tag.attribute",        { fg = aqua })
 hl("@tag.delimiter",        { fg = fg3 })
 
