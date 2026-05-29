@@ -3,7 +3,7 @@
 -- Plugins
 -- ============================================================
 vim.pack.add({
---    "https://github.com/arborist-ts/arborist.nvim",
+    "https://github.com/arborist-ts/arborist.nvim",
     "https://github.com/echasnovski/mini.nvim",
     "https://github.com/folke/which-key.nvim",
     "https://github.com/nvim-tree/nvim-tree.lua",
@@ -14,7 +14,7 @@ vim.pack.add({
 local function packadd(name)
     vim.cmd("packadd " .. name)
 end
---packadd("arborist.nvim")
+packadd("arborist.nvim")
 packadd("mini.nvim")
 packadd("which-key.nvim")
 packadd("nvim-tree.lua")
@@ -25,16 +25,16 @@ packadd("piki")
 -- Plugin Config
 -- ============================================================
 -- arborist
---require('arborist').setup({
---    perfer_wasm = true,
---    compiler = "clang",
---    update_cadence = "weekly",
---    install_popular = false,
---    disable = {
---        indent = { "markdown", "markdown-inline" },
---        highlight = { "markdown", "markdown-inline" },
---    }
---})
+require('arborist').setup({
+    perfer_wasm = true,
+    compiler = "clang",
+    update_cadence = "weekly",
+    install_popular = true,
+    disable = {
+        indent = { "markdown", "markdown-inline" },
+        highlight = { "markdown", "markdown-inline" },
+    }
+})
 
 
 --mini.nvim

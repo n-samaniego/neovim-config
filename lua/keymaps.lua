@@ -101,3 +101,22 @@ vim.keymap.set('n', '<leader>c', function()
   vim.api.nvim_put({ " " .. timestamp .. " - " }, "c", false, true)
   vim.cmd("startinsert!")
 end, { buffer = true, desc = "Insert timestamp" })
+
+-- completions
+-- accept comps using <CR>
+vim.keymap.set("i", "<CR>", function()
+  if vim.fn.complete_info()["selected"] ~= -1 then return "<C-y>" end
+  if vim.fn.pumvisible() ~= 0 then return "<C-e><CR>" end
+  return "<CR>"
+end, { expr = true })
+
+-- change selection using tab and shift-tab
+vim.keymap.set("i", "<Tab>", function()
+  if vim.fn.pumvisible() ~= 0 then return "<C-n>" end
+  return "<Tab>"
+end, { expr = true })
+
+vim.keymap.set("i", "<S-Tab>", function()
+  if vim.fn.pumvisible() ~= 0 then return "<C-p>" end
+  return "<S-Tab>"
+end, { expr = true })
