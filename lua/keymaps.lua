@@ -22,10 +22,10 @@ vim.keymap.set({'n', 'v'}, 'H', '0', { desc = 'Jump to beginning of line' })
 vim.keymap.set({'n', 'v'}, 'L', '$', { desc = 'Jump to end of line' })
 
 -- Move in insert mode
-vim.keymap.set("i", "<A-h>", "<Left>",  { desc = "Move left" })
-vim.keymap.set("i", "<A-j>", "<Down>",  { desc = "Move down" })
-vim.keymap.set("i", "<A-k>", "<Up>",    { desc = "Move up" })
-vim.keymap.set("i", "<A-l>", "<Right>", { desc = "Move right" })
+vim.keymap.set("i", "<A-h>", "<Left>",  { noremap = true, desc = "Move left" })
+vim.keymap.set("i", "<A-j>", "<Down>",  { noremap = true, desc = "Move down" })
+vim.keymap.set("i", "<A-k>", "<Up>",    { noremap = true, desc = "Move up" })
+vim.keymap.set("i", "<A-l>", "<Right>", { noremap = true, desc = "Move right" })
 
 -- move visually in soft wrap
 vim.keymap.set({'n', 'x'}, 'j', 'gj', opts)
@@ -100,7 +100,7 @@ vim.keymap.set('n', '<leader>c', function()
   local timestamp = os.date("%I:%M %p")
   vim.api.nvim_put({ " " .. timestamp .. " - " }, "c", false, true)
   vim.cmd("startinsert!")
-end, { buffer = true, desc = "Insert timestamp" })
+end, {  desc = "Insert timestamp" })
 
 -- completions
 -- accept comps using <CR>

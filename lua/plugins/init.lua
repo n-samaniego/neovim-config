@@ -117,6 +117,6 @@ require("piki").setup({
   },
   daily = {
       path = "~/Documents/Codex/10-19_Logs/10_Daily-Notes",
-      template = "~/Documents/Codex/00-09_Control/02_Templates/DailtNoteTemplate.md"
+      template_path = "~/Documents/Codex/00-09_Control/02_Templates/DailtNoteTemplate.md"
   }
 })
