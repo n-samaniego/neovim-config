@@ -4,6 +4,10 @@
       "rev": "fdeef56c2840c6772b9f68c5774ed87e9340ec7d",
       "src": "https://github.com/arborist-ts/arborist.nvim"
     },
+    "cord.nvim": {
+      "rev": "c7f82ba58da3fa6284467f408f5f5ce1d8641520",
+      "src": "https://github.com/vyfor/cord.nvim"
+    },
     "mini.nvim": {
       "rev": "402ee6c6ec8ea44b22330446c8fb4e615fd3953e",
       "src": "https://www.github.com/echasnovski/mini.nvim"

@@ -9,6 +9,7 @@ vim.pack.add({
     "https://github.com/nvim-tree/nvim-tree.lua",
     "https://github.com/NStefan002/screenkey.nvim",
     'file://' .. os.getenv('HOME') .. '/Documents/Codex/20-29_Works/piki',
+    "https://github.com/vyfor/cord.nvim"
 })
 
 local function packadd(name)
@@ -20,6 +21,7 @@ packadd("which-key.nvim")
 packadd("nvim-tree.lua")
 packadd("screenkey.nvim")
 packadd("piki")
+packadd("cord.nvim")
 
 -- ============================================================
 -- Plugin Config
@@ -30,10 +32,10 @@ require('arborist').setup({
     compiler = "clang",
     update_cadence = "weekly",
     install_popular = true,
-    disable = {
-        indent = { "markdown", "markdown-inline" },
-        highlight = { "markdown", "markdown-inline" },
-    }
+--    disable = {
+--        indent = { "markdown", "markdown-inline" },
+--        highlight = { "markdown", "markdown-inline" },
+--    }
 })
 
 
@@ -53,9 +55,6 @@ require("mini.icons").setup({})
 local wk = require("which-key")
 wk.add({
   { "<leader>f", group = "file" }, -- group
-  { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File", mode = "n" },
-  { "<leader>fb", function() print("hello") end, desc = "Foobar" },
-  { "<leader>fn", desc = "New File" },
   { "<leader>f1", hidden = true }, -- hide this keymap
   { "<leader>w", proxy = "<c-w>", group = "windows" }, -- proxy to window mappings
   { "<leader>b", group = "buffers", expand = function()
@@ -116,3 +115,6 @@ require("piki").setup({
       template_path = "~/Documents/Codex/00-09_Control/02_Templates/DailtNoteTemplate.md"
   }
 })
+
+-- presence
+require("cord").setup({})

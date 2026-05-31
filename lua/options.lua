@@ -93,6 +93,11 @@ vim.o.mouse      = 'a'                  -- mouse support in all modes
 vim.opt.autoread  = true                -- reload file if changed on disk externally
 vim.opt.autowrite = true                -- auto-save when switching buffers/running :make
 
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr   = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.foldenable = true
+vim.opt.foldlevel  = 99
+
 -- Clipboard: deferred to avoid startup latency
 vim.schedule(function()
     vim.o.clipboard = 'unnamedplus'     -- sync with system clipboard

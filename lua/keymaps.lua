@@ -37,8 +37,8 @@ vim.keymap.set('x', 'y', 'ygv<Esc>', { desc = 'Yank without moving cursor' })
 -- ============================================================
 -- SURROUND (wrap visual selection)
 -- ============================================================
-vim.keymap.set('v', '<leader>*',  'c**<Esc>P',   { desc = 'Wrap in *...*' })
-vim.keymap.set('v', '<leader>**', 'c****<Esc>hP', { desc = 'Wrap in **...**' })
+vim.keymap.set('v', '<leader>8',  'c**<Esc>P',   { desc = 'Wrap in *...*' })
+vim.keymap.set('v', '<leader>*', 'c****<Esc>hP', { desc = 'Wrap in **...**' })
 vim.keymap.set('v', "<leader>'",  "c''<Esc>P",   { desc = "Wrap in '...'" })
 vim.keymap.set('v', '<leader>`',  'c``<Esc>P',   { desc = 'Wrap in `...`' })
 vim.keymap.set('v', '<leader>"',  'c""<Esc>P',   { desc = 'Wrap in "..."' })
@@ -101,50 +101,6 @@ vim.keymap.set('n', '<leader>a', 'za', { desc = 'Toggle fold' })
 -- ============================================================
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
--- ============================================================
--- FILETYPE: C
--- ============================================================
-vim.api.nvim_create_autocmd('FileType', {
-    pattern = 'c',
-    group = vim.api.nvim_create_augroup('ft-c', { clear = true }),
-    callback = function()
-        -- Compile and run current file (<leader>ec)
-        vim.keymap.set('n', '<leader>ec',
-            ':w<CR>:!gcc % -o %:r && ./%:r<CR>',
-            { buffer = true, noremap = true, silent = true, desc = '[E]xecute [C] file' })
-
-        -- Insert minimal C boilerplate (<leader>bc)
-        vim.keymap.set('n', '<leader>bc',
-            'i#include <stdio.h><CR><CR>int main() {<CR>}<Esc>O',
-            { buffer = true, desc = '[B]oilerplate [C]' })
-    end,
-})
-
--- ============================================================
--- FILETYPE: MARKDOWN
--- ============================================================
-vim.api.nvim_create_autocmd('FileType', {
-    pattern = 'markdown',
-    group = vim.api.nvim_create_augroup('ft-markdown', { clear = true }),
-    callback = function()
-        -- Insert empty link with cursor on label: [|]()
-        vim.keymap.set('n', '<leader>li',
-            'i[]()<Left><Left><Left><Esc>a',
-            { buffer = true, desc = 'MD: insert empty link' })
-        -- Wrap visual selection as link label: [sel]()
-        vim.keymap.set('v', '<leader>li',
-            '"ac[<C-r>"]()<Esc><Left>a',
-            { buffer = true, desc = 'MD: wrap selection as link label' })
-        -- Insert link with clipboard as URL: [|](clipboard)
-        vim.keymap.set('n', '<leader>lp',
-            'i[]()<Left><Esc>pF[a',
-            { buffer = true, desc = 'MD: insert link, paste URL' })
-        -- Wrap visual selection as label, paste URL
-        vim.keymap.set('v', '<leader>lp',
-            '"ac[<C-r>"]()<Esc><Left>p',
-            { buffer = true, desc = 'MD: wrap selection, paste URL' })
-    end,
-})
 
 -- ============================================================
 -- TABS
@@ -182,6 +138,6 @@ end, { desc = 'Zoxide: jump to dir in new tab' })
 -- Insert timestamp at cursor and drop into insert mode (<leader>c)
 vim.keymap.set('n', '<leader>c', function()
     local timestamp = os.date('%I:%M %p')
-    vim.api.nvim_put({ ' ' .. timestamp .. ' - ' }, 'c', false, true)
+    vim.api.nvim_put({ ' ' .. timestamp .. ' -' }, 'c', false, true)
     vim.cmd('startinsert!')
 end, { desc = 'Insert timestamp' })
